@@ -12,7 +12,7 @@ public class Block extends Image{
 	int y;
 	
 	Block() throws SlickException{
-		sprite = new Image("resrouces/plane.png");
+		sprite = new Image("resources/plane.png");
 		xVel = r.nextInt(10);
 		yVel = r.nextInt(10);
 		
