@@ -22,7 +22,7 @@ public class Main extends BasicGame{
 
 		/*This is a little test case to see if my class works*/
 		clock = new Clock();
-		blcks = new games.Blocks(20);
+		blcks = new games.Blocks(10);
 
 	}
 
