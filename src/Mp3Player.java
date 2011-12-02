@@ -1,14 +1,8 @@
-import javazoom.jl.decoder.Decoder;
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
 
+import javazoom.jl.player.Player;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.io.BufferedInputStream;
-
-import javax.swing.JFileChooser;
 
 public class Mp3Player
 {
@@ -22,10 +16,17 @@ public class Mp3Player
 			file = new FileInputStream(filename);
 			bis = new BufferedInputStream(file);
 			player = new Player(bis);
-			player.play();
 		}
 		catch(Exception e){
 			ERROR = -1;
 		}
 	}
-}
+	public void play(){
+		try{
+		player.play();
+		}
+		catch(Exception e){
+			ERROR = -1;
+		}
+	}
+}       
