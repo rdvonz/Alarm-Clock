@@ -15,6 +15,8 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 
+import org.newdawn.slick.SlickException;
+
 public class window {
 
 	private JFrame frmAlarm;
@@ -87,7 +89,12 @@ public class window {
 		JButton btnNext = new JButton("Next");
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				openDialog();
+				try {
+					openDialog();
+				} catch (SlickException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnNext.setBounds(140, 177, 89, 23);
@@ -110,20 +117,29 @@ public class window {
 		JButton btnNewButton = new JButton("Set");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int spinNum = (Integer) spinner.getValue();
-				int spinNum1 = (Integer) spinner_1.getValue();
+				String spinNum = spinner.getValue().toString();
+				String spinNum1 = spinner_1.getValue().toString();
+				if(spinNum1.length() == 1)
+				{
+					String zero = "0";
+					spinNum1 = zero + spinNum1;
+				}
 				String alarmTime = spinNum + ":" + spinNum1;
-				System.out.println("Your alarm is set for " + alarmTime);
+				System.out.println(alarmTime);
+				clock.Clock.setAlarm(alarmTime);
 			}
 		});
 		btnNewButton.setBounds(357, 55, 72, 23);
 		frmAlarm.getContentPane().add(btnNewButton);
 	}
-	private static String openDialog() {
+	private static String openDialog() throws SlickException {
 		JFileChooser open = new JFileChooser();
 		int openReturn = open.showOpenDialog(null);
+		if (openReturn == JFileChooser.APPROVE_OPTION) {
+			clock.Main.main();
+		}
 		if (openReturn != JFileChooser.APPROVE_OPTION) {
-			System.exit(1);
+			System.exit(0);
 		}
 		return open.getSelectedFile().toString();
 	}
