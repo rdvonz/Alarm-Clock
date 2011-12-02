@@ -97,13 +97,11 @@ public class window {
 		spinner.setModel(new SpinnerNumberModel(0, 0, 23, 1));
 		spinner.setBounds(350, 23, 37, 20);
 		frmAlarm.getContentPane().add(spinner);
-		System.out.println(spinner);
 
 		final JSpinner spinner_1 = new JSpinner();
 		spinner_1.setModel(new SpinnerNumberModel(0, 0, 59, 1));
 		spinner_1.setBounds(400, 23, 37, 20);
 		frmAlarm.getContentPane().add(spinner_1);
-		System.out.println(spinner_1);
 
 		JLabel lblmilitaryTimePlease = new JLabel("(Military time please)");
 		lblmilitaryTimePlease.setBounds(120, 35, 175, 16);
