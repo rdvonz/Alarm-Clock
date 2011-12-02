@@ -1,8 +1,6 @@
-import javazoom.jl.*;
 import javazoom.jl.decoder.Decoder;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
-import javazoom.jl.player.PlayerApplet;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -25,6 +23,9 @@ public class Mp3Player
 		bis = new BufferedInputStream(file);
 		
 		player = new Player(bis);
+		
+		String path = fc.getSelectedFile().getPath();
+		System.out.println(path);
 		
 		player.play();
 		
