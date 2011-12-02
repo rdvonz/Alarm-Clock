@@ -1,24 +1,19 @@
 package gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import java.awt.FlowLayout;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.JCheckBox;
-import javax.swing.JSpinner;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTree;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.JFormattedTextField;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
 
 public class window {
 
@@ -55,65 +50,65 @@ public class window {
 		frmAlarm.getContentPane().setForeground(Color.BLACK);
 		frmAlarm.setForeground(Color.WHITE);
 		frmAlarm.setTitle("Alarm");
-		frmAlarm.setBounds(100, 100, 412, 288);
+		frmAlarm.setBounds(100, 100, 500, 250);
 		frmAlarm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAlarm.getContentPane().setLayout(null);
-		
+
 		JLabel lblWhatTimeWould = new JLabel("What time would you like your alarm?");
 		lblWhatTimeWould.setToolTipText("");
 		lblWhatTimeWould.setHorizontalAlignment(SwingConstants.CENTER);
-		lblWhatTimeWould.setBounds(46, 16, 221, 33);
+		lblWhatTimeWould.setBounds(46, 23, 300, 14);
 		frmAlarm.getContentPane().add(lblWhatTimeWould);
-		
+
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-		btnCancel.setBounds(218, 177, 89, 23);
+		btnCancel.setBounds(240, 177, 89, 23);
 		frmAlarm.getContentPane().add(btnCancel);
-		
+
 		JLabel lblWhatColorWould = new JLabel("What color would you like your clock?");
-		lblWhatColorWould.setBounds(46, 103, 221, 14);
+		lblWhatColorWould.setBounds(46, 100, 300, 14);
 		frmAlarm.getContentPane().add(lblWhatColorWould);
-		
+
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setForeground(Color.BLACK);
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Orange", "Green", "Blue", "Red", "White", "Pink"}));
 		comboBox_1.setMaximumRowCount(6);
-		comboBox_1.setBounds(276, 99, 89, 23);
+		comboBox_1.setBounds(350, 99, 89, 23);
 		frmAlarm.getContentPane().add(comboBox_1);
-		
+
 		JLabel lblClicknextTo = new JLabel("Click 'Next' to select your music");
-		lblClicknextTo.setBounds(126, 150, 208, 14);
+		lblClicknextTo.setBounds(131, 150, 300, 14);
 		frmAlarm.getContentPane().add(lblClicknextTo);
-		
+
 		JButton btnNext = new JButton("Next");
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				openDialog();
 			}
 		});
-		btnNext.setBounds(117, 177, 89, 23);
+		btnNext.setBounds(140, 177, 89, 23);
 		frmAlarm.getContentPane().add(btnNext);
-		
+
 		final JSpinner spinner = new JSpinner();
 		spinner.setModel(new SpinnerNumberModel(0, 0, 23, 1));
-		spinner.setBounds(279, 23, 37, 20);
+		spinner.setBounds(350, 23, 37, 20);
 		frmAlarm.getContentPane().add(spinner);
 		System.out.println(spinner);
-		
+
 		final JSpinner spinner_1 = new JSpinner();
 		spinner_1.setModel(new SpinnerNumberModel(0, 0, 59, 1));
-		spinner_1.setBounds(328, 23, 37, 20);
+		spinner_1.setBounds(400, 23, 37, 20);
 		frmAlarm.getContentPane().add(spinner_1);
 		System.out.println(spinner_1);
-		
+
 		JLabel lblmilitaryTimePlease = new JLabel("(Military time please)");
-		lblmilitaryTimePlease.setBounds(100, 58, 142, 16);
+		lblmilitaryTimePlease.setBounds(120, 35, 175, 16);
 		frmAlarm.getContentPane().add(lblmilitaryTimePlease);
-		
+
 		JButton btnNewButton = new JButton("Set");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -123,7 +118,15 @@ public class window {
 				System.out.println("Your alarm is set for " + alarmTime);
 			}
 		});
-		btnNewButton.setBounds(289, 55, 72, 23);
+		btnNewButton.setBounds(357, 55, 72, 23);
 		frmAlarm.getContentPane().add(btnNewButton);
+	}
+	private static String openDialog() {
+		JFileChooser open = new JFileChooser();
+		int openReturn = open.showOpenDialog(null);
+		if (openReturn != JFileChooser.APPROVE_OPTION) {
+			System.exit(1);
+		}
+		return open.getSelectedFile().toString();
 	}
 }
