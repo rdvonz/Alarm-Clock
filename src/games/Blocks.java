@@ -9,10 +9,6 @@ public class Blocks{
 	ArrayList<Block> blocks;
 	Random r = new Random();
 	Block blck;
-	int xVel;
-	int yVel;
-	int x;
-	int y;
 
 	public Blocks(int num){
 		blocks = new ArrayList<Block>();
