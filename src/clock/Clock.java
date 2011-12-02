@@ -13,7 +13,6 @@ public class Clock extends AngelCodeFont{
 	DateFormat dateFormat;
 	Calendar cal;
 	AngelCodeFont font;
-	int stateID = -1;
 	int width;
 	int height;
 	String clockText;
