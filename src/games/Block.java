@@ -2,10 +2,14 @@ package games;
 import java.util.Random;
 
 import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.fills.GradientFill;
+import org.newdawn.slick.Color;
 public class Block extends Rectangle{
 	/**
 	 * 
 	 */
+	GradientFill fill;
+	Color col;
 	private static final long serialVersionUID = 1L;
 	Random r = new Random();
 	int xVel;
