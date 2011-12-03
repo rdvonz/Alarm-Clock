@@ -1,4 +1,19 @@
-a WIP clock that will be able to play your music and do other cool things.
-Test push! 
-
-I am pushing a change!
+A-Lame Clock (The Minigame Alarm Clock)
+---------------------------------------------------------
+The minigame alarm clock provides its users with a brand
+new experience every time they get out of bed. No more
+snoozing through your life, play a game instead!
+With A-Lame Clock (The minigame Alarm Clock) You won't
+miss another second of your waking life. With built in
+games such as: "Avoid the block!", "Don't touch the block!",
+and "That is a Dangerous Block!"; Snoozing won't be an issue,
+but playing with your alarm clock will.
+It even plays your own music files! and it features 24-hour
+standard (Yes standard!) Time! and Colors, you can change the colors
+of the clock. It's really nice.
+--------------------------------------------------------
+DEPENDENCIES
+A-Lame Clock Depends on:
+* Slick2D - http://slick.cokeandcode.com/
+  o LWJGL - http://lwjgl.org/
+* Javalayer MP3 Library - http://www.javazoom.net/javalayer/javalayer.html
