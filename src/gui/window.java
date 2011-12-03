@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -17,9 +18,12 @@ import javax.swing.SwingConstants;
 
 import org.newdawn.slick.SlickException;
 
+import clock.MP3;
+
 public class window {
 
 	private JFrame frmAlarm;
+	private static File song;
 
 	/**
 	 * Launch the application.
@@ -121,10 +125,9 @@ public class window {
 				String spinNum1 = spinner_1.getValue().toString();
 				if(spinNum1.length() == 1)
 				{
-					String zero = "0";
-					spinNum1 = zero + spinNum1;
+					spinNum1 = "0" + spinNum1;
 				}
-				String alarmTime = spinNum + ":" + spinNum1;
+				String alarmTime = spinNum + ":" + spinNum1 + ":00";
 				System.out.println(alarmTime);
 				clock.Clock.setAlarm(alarmTime);
 			}
@@ -132,15 +135,22 @@ public class window {
 		btnNewButton.setBounds(357, 55, 72, 23);
 		frmAlarm.getContentPane().add(btnNewButton);
 	}
-	private static String openDialog() throws SlickException {
+	private void openDialog() throws SlickException{
 		JFileChooser open = new JFileChooser();
 		int openReturn = open.showOpenDialog(null);
 		if (openReturn == JFileChooser.APPROVE_OPTION) {
-			clock.Main.main();
+			setSong(open.getSelectedFile());
+			clock.Main.main(null);
+			
 		}
 		if (openReturn != JFileChooser.APPROVE_OPTION) {
 			System.exit(0);
 		}
-		return open.getSelectedFile().toString();
+	}
+	public static File getSong(){
+		return song;
+	}
+	private static void setSong(File sng){
+		song = sng;
 	}
 }

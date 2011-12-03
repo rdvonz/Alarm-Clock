@@ -1,11 +1,14 @@
 package clock;
 
 import javazoom.jl.player.Player;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.BufferedInputStream;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
-public class MP3 extends Thread
+public class MP3
 {
 	private Player player;
 	private FileInputStream file;
@@ -21,12 +24,15 @@ public class MP3 extends Thread
 		catch(Exception e){
 			ERROR = -1;
 		}
-	}
-	public void run(){
-		try{player.play();
-		}
-		catch (Exception e) {
-			ERROR = -1;
-		}
+		Executor executor = Executors.newSingleThreadExecutor();
+		executor.execute(new Runnable() { public void run() {  
+			try{player.play();
+			}
+			catch (Exception e) {
+				System.out.print(e);
+				ERROR = -1;
+			}
+
+		} });
 	}
 }

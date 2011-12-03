@@ -1,9 +1,13 @@
 package clock;
 
 /*Imports from the Slick2d Game library*/
+import gui.window;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.SlickException;
@@ -17,7 +21,8 @@ public class Clock extends AngelCodeFont{
 	int height;
 	String clockText;
 	Color col;
-	String alarm;
+	private static String alarm;
+	private static boolean alarm_on = false;
 
 	public Clock() throws SlickException{
 		super("resources/lcd.fnt", "resources/lcd.png");
@@ -38,22 +43,25 @@ public class Clock extends AngelCodeFont{
 	public void update(){
 		cal = Calendar.getInstance();
 		clockText = (dateFormat.format(cal.getTime())).toString();
+
+		checkAlarm();
 	}
 	public void render(){
 		super.drawString(320-width,0+height, clockText, Color.orange);
 	}
 
-	public void setAlarm(String alarm){
-		this.alarm = alarm;
+	public static void setAlarm(String alrm){
+		alarm = alrm;
 	}
 	public String getAlarm(){
 		return alarm;
 	}
-	
-	public Boolean checkAlarm(){
-		if(alarm.equals(clockText)){
-			return true;
+
+	public void checkAlarm(){
+		if(alarm.equals(clockText) && alarm_on == false){ 
+			alarm_on=true;
+			MP3 mp3 = new MP3(gui.window.getSong());
+			System.out.print("winning");
 		}
-		return false;
 	}
 }
