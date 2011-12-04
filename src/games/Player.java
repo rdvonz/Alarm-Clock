@@ -48,6 +48,7 @@ public class Player extends Rectangle{
 			if(coords[2] > obj.coords[2]){
 				//System.out.print("1");
 				if(coords[3]-25 < obj.coords[3]+25){
+					System.out.print("hit");
 					return true;
 				}
 			}
