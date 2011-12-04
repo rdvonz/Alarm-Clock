@@ -80,7 +80,7 @@ public class window {
 		frmAlarm.getContentPane().add(lblWhatColorWould);
 
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setForeground(Color.BLACK);
+		comboBox_1.setForeground(Color.BLACK);	
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Orange", "Green", "Blue", "Red", "White", "Pink"}));
 		comboBox_1.setMaximumRowCount(6);
 		comboBox_1.setBounds(350, 99, 89, 23);
@@ -126,6 +126,10 @@ public class window {
 				if(spinNum1.length() == 1)
 				{
 					spinNum1 = "0" + spinNum1;
+				}
+				if(spinNum.length() == 1)
+				{
+					spinNum = "0" + spinNum;
 				}
 				String alarmTime = spinNum + ":" + spinNum1 + ":00";
 				System.out.println(alarmTime);
