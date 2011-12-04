@@ -26,8 +26,7 @@ public class MP3
 		}
 		Executor executor = Executors.newSingleThreadExecutor();
 		executor.execute(new Runnable() { public void run() {  
-			try{player.play();
-			}
+			try{player.play();}
 			catch (Exception e) {
 				System.out.print(e);
 				ERROR = -1;

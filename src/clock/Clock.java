@@ -21,7 +21,7 @@ public class Clock extends AngelCodeFont{
 	int height;
 	String clockText;
 	Color col;
-	private static String alarm;
+	private static String alarm = "00:00:00";
 	private static boolean alarm_on = false;
 
 	public Clock() throws SlickException{
