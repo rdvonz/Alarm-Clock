@@ -34,7 +34,7 @@ public class Main extends BasicGame{
 		playerFill = new GradientFill(320, 240, Color.red, 640, 480, col.cyan);
 		clock = new Clock();
 		player = new Player();
-		blcks = new Blocks(1);
+		blcks = new Blocks(10);
 		input = gc.getInput();
 
 

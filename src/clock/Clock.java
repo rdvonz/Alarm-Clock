@@ -39,7 +39,11 @@ public class Clock extends AngelCodeFont{
 		/*This is a little test case to see if my class works*/
 
 	}
-
+	
+	public void setColor(Color col)
+	{
+		this.col = col;
+	}
 	public void update(){
 		cal = Calendar.getInstance();
 		clockText = (dateFormat.format(cal.getTime())).toString();
@@ -47,7 +51,7 @@ public class Clock extends AngelCodeFont{
 		checkAlarm();
 	}
 	public void render(){
-		super.drawString(320-width,0+height, clockText, Color.orange);
+		super.drawString(320-width,0+height, clockText, gui.window.getColor());
 	}
 
 	public static void setAlarm(String alrm){
