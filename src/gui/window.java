@@ -24,6 +24,7 @@ public class window {
 
 	private JFrame frmAlarm;
 	private static File song;
+	private static String comboBoxColor;
 
 	/**
 	 * Launch the application.
@@ -63,7 +64,7 @@ public class window {
 		JLabel lblWhatTimeWould = new JLabel("What time would you like your alarm?");
 		lblWhatTimeWould.setToolTipText("");
 		lblWhatTimeWould.setHorizontalAlignment(SwingConstants.CENTER);
-		lblWhatTimeWould.setBounds(46, 23, 300, 14);
+		lblWhatTimeWould.setBounds(29, 23, 300, 14);
 		frmAlarm.getContentPane().add(lblWhatTimeWould);
 
 		JButton btnCancel = new JButton("Cancel");
@@ -76,18 +77,19 @@ public class window {
 		frmAlarm.getContentPane().add(btnCancel);
 
 		JLabel lblWhatColorWould = new JLabel("What color would you like your clock?");
-		lblWhatColorWould.setBounds(46, 100, 300, 14);
+		lblWhatColorWould.setBounds(71, 103, 247, 14);
 		frmAlarm.getContentPane().add(lblWhatColorWould);
 
-		JComboBox comboBox_1 = new JComboBox();
+		final JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setForeground(Color.BLACK);
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Orange", "Green", "Blue", "Red", "White", "Pink"}));
 		comboBox_1.setMaximumRowCount(6);
-		comboBox_1.setBounds(350, 99, 89, 23);
+		comboBox_1.setBounds(311, 99, 89, 23);
 		frmAlarm.getContentPane().add(comboBox_1);
+		
 
 		JLabel lblClicknextTo = new JLabel("Click 'Next' to select your music");
-		lblClicknextTo.setBounds(131, 150, 300, 14);
+		lblClicknextTo.setBounds(160, 148, 300, 14);
 		frmAlarm.getContentPane().add(lblClicknextTo);
 
 		JButton btnNext = new JButton("Next");
@@ -134,6 +136,16 @@ public class window {
 		});
 		btnNewButton.setBounds(357, 55, 72, 23);
 		frmAlarm.getContentPane().add(btnNewButton);
+		
+		JButton btnSet = new JButton("Set");
+		btnSet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				comboBoxColor = comboBox_1.getSelectedItem().toString();
+				System.out.println(comboBoxColor);
+			}
+		});
+		btnSet.setBounds(400, 99, 60, 23);
+		frmAlarm.getContentPane().add(btnSet);
 	}
 	private void openDialog() throws SlickException{
 		JFileChooser open = new JFileChooser();
@@ -152,5 +164,28 @@ public class window {
 	}
 	private static void setSong(File sng){
 		song = sng;
+	}
+	public static org.newdawn.slick.Color getColor()
+	{
+		if(comboBoxColor.equals("Orange")){
+			return org.newdawn.slick.Color.orange;
+		}
+		if(comboBoxColor.equals("Green")){
+			return org.newdawn.slick.Color.green;
+		}
+		if(comboBoxColor.equals("Blue")){
+			return org.newdawn.slick.Color.blue;
+		}
+		if(comboBoxColor.equals("Red")){
+			return org.newdawn.slick.Color.red;
+		}
+		if(comboBoxColor.equals("White")){
+			return org.newdawn.slick.Color.white;
+		}
+		if(comboBoxColor.equals("Pink")){
+			return org.newdawn.slick.Color.pink;
+		}
+		return org.newdawn.slick.Color.white;
+		
 	}
 }
