@@ -153,6 +153,7 @@ public class window {
 	}
 	private void openDialog() throws SlickException{
 		JFileChooser open = new JFileChooser();
+		open.addChoosableFileFilter(new filter());
 		int openReturn = open.showOpenDialog(null);
 		if (openReturn == JFileChooser.APPROVE_OPTION) {
 			setSong(open.getSelectedFile());
