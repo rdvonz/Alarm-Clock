@@ -33,6 +33,7 @@ public class Blocks{
 		for(int i=0; i<getNumBlocks(); i++){
 			if(((Block) getBlock(i)).getCoords()[3]>480){
 				((Block) getBlock(i)).setLoc(r.nextInt(480),0);
+				GameStarter.setScore();
 			}
 			((Block) getBlock(i)).setLoc();
 		}

@@ -1,6 +1,7 @@
 package clock;
 
 /*Imports from the Slick2d Game library*/
+import games.GameStarter;
 import gui.window;
 
 import java.text.DateFormat;
@@ -21,6 +22,7 @@ public class Clock extends AngelCodeFont{
 	int height;
 	String clockText;
 	Color col;
+	MP3 mp3;
 	private static String alarm = "00:00:00";
 	private static boolean alarm_on = false;
 
@@ -67,8 +69,7 @@ public class Clock extends AngelCodeFont{
 	private void checkAlarm(){
 		if(alarm.equals(clockText) && alarm_on == false){ 
 			alarm_on=true;
-			MP3 mp3 = new MP3(gui.window.getSong());
-			System.out.print("winning");
+			mp3 = new MP3(gui.window.getSong());
 		}
 	}
 }

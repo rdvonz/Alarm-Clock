@@ -46,18 +46,16 @@ public class Player extends Rectangle{
 	public void setPosition(int x) {
 		this.x = x;
 	}
-	public boolean checkCollision(Block obj){	
+	public void checkCollision(Block obj){	
 		if(coords[0] < obj.getCoords()[0] && coords[1] > obj.getCoords()[0]){
 			//System.out.println("x-hit");
 			if(coords[2]-25 < obj.getCoords()[2]+25){
 				//System.out.print("1");
-				if(coords[3]+25 > obj.getCoords()[3]-25){
-					System.out.println("hit");
-					return true;
+				if(coords[3]+25 > obj.getCoords()[3]-25){;
+					GameStarter.delScore();
 				}
 			}
 		}
 		//System.out.println(coords[2]+" "+obj.coords[2]);
-		return false;
 	}
 }
