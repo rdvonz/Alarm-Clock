@@ -192,4 +192,23 @@ public class window {
 		}
 		return org.newdawn.slick.Color.white;
 	}
+	class filter extends FileFilter {
+
+		public boolean accept(File f) {
+			if (f.isDirectory())
+				return true;
+			String s = f.getName();
+			int i = s.lastIndexOf('.');
+
+			if (i > 0 && i < s.length() - 1)
+				if (s.substring(i + 1).toLowerCase().equals("mp3" ))
+					return true;
+
+			return false;
+		}
+
+		public String getDescription() {
+			return "*.mp3";
+		}
+	}
 }
