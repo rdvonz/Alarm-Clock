@@ -31,6 +31,12 @@ public class Player extends Rectangle{
 		if(input.isKeyDown(Input.KEY_LEFT)){
 			x-=xVel;
 		}
+		if(coords[0] < 0){
+			x=630;
+		}
+		if(coords[0] > 640){
+			x=26;
+		}
 		setLocation(x,y);
 
 	}

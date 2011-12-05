@@ -19,7 +19,7 @@ public class GameStarter extends AngelCodeFont{
 
 	public GameStarter() throws SlickException{
 		super("resources/lcd.fnt", "resources/lcd.png");
-		startText = "Clear 100 to win! Press Spacebar to start";
+		startText = "Clear 100 to win! Hit Space";
 		//Make this a little smarter
 		width = getWidth(startText)/2;
 		height = getHeight(startText)/2;
