@@ -209,7 +209,7 @@ public class window {
 		}
 
 		public String getDescription() {
-			return "*.mp3";
+			return "Music Files (.mp3)";
 		}
 	}
 }
