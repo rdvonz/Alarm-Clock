@@ -16,12 +16,13 @@ import org.newdawn.slick.fills.GradientFill;
 public class Main extends BasicGame{
 	Blocks blcks;
 	Clock clock;
+	GameStarter start;
 	Color col;
 	GradientFill fill;
 	GradientFill playerFill;
 	Input input;
 	Player player;
-	
+
 	public Main(){
 		super("Clock");
 	}
@@ -36,28 +37,34 @@ public class Main extends BasicGame{
 		player = new Player();
 		blcks = new Blocks(10);
 		input = gc.getInput();
+		start = new GameStarter();
 
 
 	}
 
 	public void update(GameContainer gc, int delta) throws SlickException{
-
-		//blcks.update();
 		clock.update();
-		blcks.update();
-		player.update(input);
+		if(GameStarter.checkGameState()){
+			
+			blcks.update();
+			player.update(input);
+		}
+		start.update(input);
 		for(int i=0; i<blcks.getNumBlocks(); i++){
 			player.checkCollision((Block) blcks.getBlock(i));
 		}
-		
+
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException{
 		clock.render();
-		for(int i=0; i<blcks.getNumBlocks(); i++){
-			g.fill(blcks.getBlock(i), fill);
+		start.render();
+		if(GameStarter.checkGameState()){
+			for(int i=0; i<blcks.getNumBlocks(); i++){
+				g.fill(blcks.getBlock(i), fill);
+			}
+			g.fill(player, playerFill);
 		}
-		g.fill(player, playerFill);
 
 	}
 	public static void main(String[] args) throws SlickException{

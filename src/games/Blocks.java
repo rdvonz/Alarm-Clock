@@ -1,5 +1,5 @@
 package games;
-                              
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -20,17 +20,20 @@ public class Blocks{
 		for(int i=0; i<num; i++){
 			blocks.add(new Block());
 		}
-		}
-		
+	}
+
 	public Rectangle getBlock(int numBlock){
 		return blocks.get(numBlock);
 	}
 	public int getNumBlocks(){
 		return blocks.size();
 	}
-	
+
 	public void update(){
 		for(int i=0; i<getNumBlocks(); i++){
+			if(((Block) getBlock(i)).getCoords()[3]>480){
+				((Block) getBlock(i)).setLoc(r.nextInt(480),0);
+			}
 			((Block) getBlock(i)).setLoc();
 		}
 	}	

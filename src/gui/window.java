@@ -86,7 +86,7 @@ public class window {
 		comboBox_1.setMaximumRowCount(6);
 		comboBox_1.setBounds(311, 99, 89, 23);
 		frmAlarm.getContentPane().add(comboBox_1);
-		
+
 
 		JLabel lblClicknextTo = new JLabel("Click 'Next' to select your music");
 		lblClicknextTo.setBounds(160, 148, 300, 14);
@@ -140,7 +140,7 @@ public class window {
 		});
 		btnNewButton.setBounds(357, 55, 72, 23);
 		frmAlarm.getContentPane().add(btnNewButton);
-		
+
 		JButton btnSet = new JButton("Set");
 		btnSet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -157,7 +157,7 @@ public class window {
 		if (openReturn == JFileChooser.APPROVE_OPTION) {
 			setSong(open.getSelectedFile());
 			clock.Main.main(null);
-			
+
 		}
 		if (openReturn != JFileChooser.APPROVE_OPTION) {
 			System.exit(0);
@@ -190,6 +190,5 @@ public class window {
 			return org.newdawn.slick.Color.pink;
 		}
 		return org.newdawn.slick.Color.white;
-		
 	}
 }

@@ -60,8 +60,11 @@ public class Clock extends AngelCodeFont{
 	public String getAlarm(){
 		return alarm;
 	}
+	public static boolean getAlarmState(){
+		return alarm_on;
+	}
 
-	public void checkAlarm(){
+	private void checkAlarm(){
 		if(alarm.equals(clockText) && alarm_on == false){ 
 			alarm_on=true;
 			MP3 mp3 = new MP3(gui.window.getSong());
