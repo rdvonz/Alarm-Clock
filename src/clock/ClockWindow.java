@@ -70,7 +70,7 @@ public class ClockWindow extends BasicGame{
 	public static void startClockWindow() throws SlickException{
 		AppGameContainer app = new AppGameContainer(new ClockWindow());
 		app.setTargetFrameRate(60);
-		app.setDisplayMode(640, 480, false);
+		app.setDisplayMode(640, 480, true);
 		app.start();
 
 	}

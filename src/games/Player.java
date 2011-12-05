@@ -14,15 +14,15 @@ public class Player extends Rectangle{
 	private int[] coords;
 	Input input;
 	public Player(){
-		super(50, 50, 50, 50);
+		super(25, 25, 25, 25);
 		coords = new int[4];
 	}
 
 	public void update(Input input){
 		coords[0] = x;
-		coords[1] = x+50;
+		coords[1] = x+25;
 		coords[2] = y;
-		coords[3] = y+50;
+		coords[3] = y+25;
 
 		if(input.isKeyDown(Input.KEY_RIGHT)){
 			x+=xVel;
