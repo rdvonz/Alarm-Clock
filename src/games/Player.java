@@ -54,7 +54,6 @@ public class Player extends Rectangle{
 	}
 	public void checkCollision(Block obj){	
 		if(coords[0] < obj.getCoords()[1] && coords[1] > obj.getCoords()[0]){
-			System.out.println("x-hit");
 			if(coords[2] < obj.getCoords()[3]){
 				//System.out.print("1");
 				if(coords[3] > obj.getCoords()[2]){;

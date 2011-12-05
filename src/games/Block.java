@@ -15,15 +15,23 @@ public class Block extends Rectangle{
 	private int yVel;
 	private int x;
 	private int y;
+	private int prevBlock=0;
 	private int[] coords;
 
 	public Block(){
 		super(50, 50, 50, 50);
+		int vel = 1;
+		if(r.nextInt(2)==1){
+			vel = vel*-1;
+		}
 		coords = new int[4];
-		xVel = 0;
-		yVel = (r.nextInt(2)+1);
-		x = r.nextInt(640);
+		xVel = vel;
+		yVel = 2;
+		x = r.nextInt(650)+prevBlock;
+		prevBlock = x;
+		System.out.print(x);
 		y = 0;
+		System.out.println(prevBlock);
 	}
 	public void setLoc(){
 		super.setLocation(x+=xVel, y+=yVel);
