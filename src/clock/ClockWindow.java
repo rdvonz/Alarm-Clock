@@ -13,7 +13,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.fills.GradientFill;
 
 
-public class Main extends BasicGame{
+public class ClockWindow extends BasicGame{
 	Blocks blcks;
 	Clock clock;
 	GameStarter start;
@@ -23,7 +23,7 @@ public class Main extends BasicGame{
 	Input input;
 	Player player;
 
-	public Main(){
+	public ClockWindow(){
 		super("Clock");
 	}
 
@@ -67,8 +67,8 @@ public class Main extends BasicGame{
 		}
 
 	}
-	public static void main(String[] args) throws SlickException{
-		AppGameContainer app = new AppGameContainer(new Main());
+	public static void startClockWindow() throws SlickException{
+		AppGameContainer app = new AppGameContainer(new ClockWindow());
 		app.setTargetFrameRate(60);
 		app.setDisplayMode(640, 480, false);
 		app.start();

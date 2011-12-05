@@ -156,7 +156,7 @@ public class window {
 		int openReturn = open.showOpenDialog(null);
 		if (openReturn == JFileChooser.APPROVE_OPTION) {
 			setSong(open.getSelectedFile());
-			clock.Main.main(null);
+			clock.ClockWindow.startClockWindow();
 
 		}
 		if (openReturn != JFileChooser.APPROVE_OPTION) {
