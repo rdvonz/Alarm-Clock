@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileFilter;
 
 import org.newdawn.slick.SlickException;
 
