@@ -19,10 +19,10 @@ public class Player extends Rectangle{
 	}
 
 	public void update(Input input){
-		coords[0] = x-25;
-		coords[1] = x+25;
-		coords[2] = y-25;
-		coords[3] = y+25;
+		coords[0] = x;
+		coords[1] = x+50;
+		coords[2] = y;
+		coords[3] = y+50;
 
 		if(input.isKeyDown(Input.KEY_RIGHT)){
 			x+=xVel;
@@ -31,11 +31,11 @@ public class Player extends Rectangle{
 		if(input.isKeyDown(Input.KEY_LEFT)){
 			x-=xVel;
 		}
-		if(coords[0] < 0){
-			x=630;
+		if(coords[1] < 0){
+			x=639;
 		}
 		if(coords[0] > 640){
-			x=26;
+			x=1;
 		}
 		setLocation(x,y);
 
@@ -53,11 +53,11 @@ public class Player extends Rectangle{
 		this.x = x;
 	}
 	public void checkCollision(Block obj){	
-		if(coords[0] < obj.getCoords()[0] && coords[1] > obj.getCoords()[0]){
-			//System.out.println("x-hit");
-			if(coords[2]-25 < obj.getCoords()[2]+25){
+		if(coords[0] < obj.getCoords()[1] && coords[1] > obj.getCoords()[0]){
+			System.out.println("x-hit");
+			if(coords[2] < obj.getCoords()[3]){
 				//System.out.print("1");
-				if(coords[3]+25 > obj.getCoords()[3]-25){;
+				if(coords[3] > obj.getCoords()[2]){;
 					GameStarter.delScore();
 				}
 			}

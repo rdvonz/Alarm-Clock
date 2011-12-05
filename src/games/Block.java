@@ -28,10 +28,10 @@ public class Block extends Rectangle{
 	public void setLoc(){
 		super.setLocation(x+=xVel, y+=yVel);
 		//Update the coordinates
-		coords[0] = x-25;
-		coords[1] = x+25;
-		coords[2] = y-25;
-		coords[3] = y+25;
+		coords[0] = x;
+		coords[1] = x+50;
+		coords[2] = y;
+		coords[3] = y+50;
 	}
 	public void setLoc(int x, int y){
 		this.x = x;
